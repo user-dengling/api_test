@@ -1,0 +1,38 @@
+[2019-05-10 14:15:07] INFO [<module>: run_all.py, 9] ================================== 测试开始 ==================================
+[2019-05-10 14:15:08] DEBUG [_new_conn: connectionpool.py, 205] Starting new HTTP connection (1): 115.28.108.130:5000
+[2019-05-10 14:15:08] DEBUG [_make_request: connectionpool.py, 393] http://115.28.108.130:5000 "POST /api/user/login/ HTTP/1.1" 200 21
+[2019-05-10 14:15:08] INFO [log_case_info: case_log.py, 10] 测试用例:test_user_login_normal
+[2019-05-10 14:15:08] INFO [log_case_info: case_log.py, 11] url:http://115.28.108.130:5000/api/user/login/
+[2019-05-10 14:15:08] INFO [log_case_info: case_log.py, 12] 请求参数:{"name": "张三","password":"123456"}
+[2019-05-10 14:15:08] INFO [log_case_info: case_log.py, 13] 期望结果:<h1>登录成功</h1>
+[2019-05-10 14:15:08] INFO [log_case_info: case_log.py, 14] 实际结果:<h1>登录成功</h1>
+[2019-05-10 14:15:08] DEBUG [_new_conn: connectionpool.py, 205] Starting new HTTP connection (1): 115.28.108.130:5000
+[2019-05-10 14:15:08] DEBUG [_make_request: connectionpool.py, 393] http://115.28.108.130:5000 "POST /api/user/login/ HTTP/1.1" 200 42
+[2019-05-10 14:15:08] INFO [log_case_info: case_log.py, 10] 测试用例:test_user_login_password_wrong
+[2019-05-10 14:15:08] INFO [log_case_info: case_log.py, 11] url:http://115.28.108.130:5000/api/user/login/
+[2019-05-10 14:15:08] INFO [log_case_info: case_log.py, 12] 请求参数:{"name": "张三","password":"1234567"}
+[2019-05-10 14:15:08] INFO [log_case_info: case_log.py, 13] 期望结果:<h1>失败，用户名或密码错误</h1>
+[2019-05-10 14:15:08] INFO [log_case_info: case_log.py, 14] 实际结果:<h1>失败，用户名或密码错误</h1>
+[2019-05-10 14:15:08] DEBUG [query_db: db.py, 18] select * from user where name = '张三'
+[2019-05-10 14:15:08] DEBUG [query_db: db.py, 24] ((2019043618, '张三', 'e10adc3949ba59abbe56e057f20f883e'),)
+[2019-05-10 14:15:08] DEBUG [_new_conn: connectionpool.py, 205] Starting new HTTP connection (1): 115.28.108.130:5000
+[2019-05-10 14:15:08] DEBUG [_make_request: connectionpool.py, 393] http://115.28.108.130:5000 "POST /api/user/reg/ HTTP/1.1" 200 183
+[2019-05-10 14:15:08] INFO [log_case_info: case_log.py, 10] 测试用例:test_user_reg_exist
+[2019-05-10 14:15:08] INFO [log_case_info: case_log.py, 11] url:http://115.28.108.130:5000/api/user/reg/
+[2019-05-10 14:15:08] INFO [log_case_info: case_log.py, 12] 请求参数:{"name": "张三", "password": "123456"}
+[2019-05-10 14:15:08] INFO [log_case_info: case_log.py, 13] 期望结果:{'code': '100001', 'msg': '失败，用户已存在', 'data': {'name': '张三', 'password': 'e10adc3949ba59abbe56e057f20f883e'}}
+[2019-05-10 14:15:08] INFO [log_case_info: case_log.py, 14] 实际结果:{"code": "100001", "data": {"name": "张三", "password": "e10adc3949ba59abbe56e057f20f883e"}, "msg": "失败，用户已存在"}
+[2019-05-10 14:15:08] DEBUG [query_db: db.py, 18] select * from user where name = '范冰冰'
+[2019-05-10 14:15:08] DEBUG [query_db: db.py, 24] ()
+[2019-05-10 14:15:08] DEBUG [_new_conn: connectionpool.py, 205] Starting new HTTP connection (1): 115.28.108.130:5000
+[2019-05-10 14:15:08] DEBUG [_make_request: connectionpool.py, 393] http://115.28.108.130:5000 "POST /api/user/reg/ HTTP/1.1" 200 153
+[2019-05-10 14:15:08] INFO [log_case_info: case_log.py, 10] 测试用例:test_user_reg_normal
+[2019-05-10 14:15:08] INFO [log_case_info: case_log.py, 11] url:http://115.28.108.130:5000/api/user/reg/
+[2019-05-10 14:15:08] INFO [log_case_info: case_log.py, 12] 请求参数:{"name": "范冰冰", "password": "123456"}
+[2019-05-10 14:15:08] INFO [log_case_info: case_log.py, 13] 期望结果:{'code': '100000', 'msg': '成功', 'data': {'name': '范冰冰', 'password': 'e10adc3949ba59abbe56e057f20f883e'}}
+[2019-05-10 14:15:08] INFO [log_case_info: case_log.py, 14] 实际结果:{"code": "100000", "data": {"name": "范冰冰", "password": "e10adc3949ba59abbe56e057f20f883e"}, "msg": "成功"}
+[2019-05-10 14:15:08] DEBUG [query_db: db.py, 18] select * from user where name = '范冰冰'
+[2019-05-10 14:15:09] DEBUG [query_db: db.py, 24] ((2019055014, '范冰冰', 'e10adc3949ba59abbe56e057f20f883e'),)
+[2019-05-10 14:15:09] DEBUG [change_db: db.py, 32] delete from user where name='范冰冰'
+[2019-05-10 14:15:09] ERROR [send_email: send_email.py, 45] (535, b'5.7.12 SMTP access disabled')
+[2019-05-10 14:15:09] INFO [<module>: run_all.py, 16] ================================== 测试结束 ==================================
