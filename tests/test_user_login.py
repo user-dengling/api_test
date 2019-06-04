@@ -40,4 +40,5 @@ class TestUserLogin(unittest.TestCase):
         log_case_info('test_user_login_password_wrong', url, data, expect_res, res.text)
         self.assertEqual(res.text, expect_res)  # 断言
 
-
+    def close(self):
+        pass
